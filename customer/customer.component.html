@@ -1,0 +1,112 @@
+<!-- 
+
+<button (click)="LoadData()">Load Data</button>
+<ol>
+    <li *ngFor="let cc of countrydata">{{cc.name}}
+
+    <ul>
+        <li *ngFor="let c of cc.states">{{c.name}}</li>
+    </ul>
+
+    </li>
+</ol>
+<button (click)="loadimage()">Load Images</button>
+<img [src]="path1" alt="" class="image">
+<img [src]="path2" alt="" class="image"> -->
+
+<!-- 
+<label for="">Select Country</label>
+<select name="ddlcountry" id=""  #ccountry (change)="LoadState(ccountry.value)" >
+    <option value="">Select</option>
+    <option *ngFor="let cc of countrydata" [value]="cc.numeric_code">{{cc.name}}</option>
+</select>
+<br>
+<label for="">Select State</label>
+<select name="ddlstate" id="">
+    <option value="">Select State</option>
+    <option *ngFor="let st of ddlstate" value="">{{st.name}}</option>
+</select>
+
+ -->
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Balance</th>
+    </tr>
+    <tr *ngFor="let cust of cusotmer" >
+        <td>{{cust.id}}</td>
+        <td [ngClass]="cust.age>=25?['text-success','bg-info']:['text-danger','bg-primary']">{{cust.name|uppercase}}</td>
+
+        <td [class.bg-success]="cust.gender=='male'">{{cust.gender}}</td>
+
+        <td [ngStyle]="cust.age>=25?{background:'green',color:'#fff'}:{background:'yellow',color:'#efcccc'}">{{cust.age}}</td>
+        <td>{{cust.balance|currency:'INR'}}</td>
+    </tr>
+</table>
+<!-- <ng-container *ngIf="islogin;then islogint; else notlogin"></ng-container>
+
+
+<ng-template #islogint >
+    user is already login
+</ng-template>
+
+<ng-template #notlogin>
+user is not login
+</ng-template> -->
+
+<p appChangecolor>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatem nulla dolor corrupti recusandae reiciendis nobis rem iusto! Quam, sit? Placeat dignissimos delectus excepturi. Error saepe velit praesentium totam temporibus?
+</p>
+
+<button class="btn btn-info" (click)="Handle()">{{btntext}}</button>
+
+<ng-container *ngIf="islogin; then signin; else signup"></ng-container>
+
+<ng-template #signin>
+    <app-signin></app-signin>
+</ng-template>
+
+<ng-template #signup>
+<app-signup></app-signup>
+</ng-template>
+<hr>
+
+<div [ngSwitch]="gcode">
+
+    <h2 *ngSwitchCase="1">Male</h2>
+    <h2 *ngSwitchCase="2">Female</h2>
+    <h2 *ngSwitchCase="3">Transgender</h2>
+    <h2 *ngSwitchDefault>Other</h2>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
